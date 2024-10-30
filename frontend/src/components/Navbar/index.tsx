@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from "react";
 import ShinyButton from "../ShinyButton";
 // import Logo from "@/public/logo.svg";
-import Image from "next/image";
 import gsap from "gsap";
 import Link from "next/link";
 

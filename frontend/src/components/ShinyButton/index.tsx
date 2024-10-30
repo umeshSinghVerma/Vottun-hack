@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import React, { forwardRef } from "react"; // Added forwardRef
+import React, { forwardRef } from "react";
 
 type ShinyButtonProps = {
   children: React.ReactNode;
@@ -20,5 +19,8 @@ const ShinyButton = forwardRef<HTMLButtonElement, ShinyButtonProps>(
     );
   }
 );
+
+// Set the displayName property
+ShinyButton.displayName = "ShinyButton";
 
 export default ShinyButton;

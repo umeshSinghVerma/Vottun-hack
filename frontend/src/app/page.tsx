@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import HeroBgImage from "../../public/bg.svg";
 import SparkleImage from "../../public/sparkle.svg";
