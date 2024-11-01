@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import HeroBgImage from "../../public/bg.svg";
 import SparkleImage from "../../public/sparkle.svg";
@@ -13,94 +14,97 @@ import Three from "../../public/3.svg";
 import Four from "../../public/4.svg";
 import { FileText, GitBranch, Wallet, Database } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
 export default function Home() {
-  // const container = useRef<HTMLDivElement>(null);
-  // const heading1Ref = useRef<HTMLHeadingElement>(null);
-  // const heading2Ref = useRef<HTMLHeadingElement>(null);
-  // const paragraphRef = useRef<HTMLParagraphElement>(null);
-  // const sparkleRef = useRef<HTMLImageElement>(null);
-  // const buttonRef = useRef<HTMLButtonElement>(null);
-  // const mintRef = useRef<HTMLDivElement>(null);
-  // const mergeRef = useRef<HTMLDivElement>(null);
-  // const moneyRef = useRef<HTMLDivElement>(null);
-  // const aboutRef = useRef<HTMLDivElement>(null);
-  // useGSAP(() => {
-  //   const refs = [heading1Ref, heading2Ref, paragraphRef];
+  const container = useRef<HTMLDivElement>(null);
+  const heading1Ref = useRef<HTMLHeadingElement>(null);
+  const heading2Ref = useRef<HTMLHeadingElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
+  const sparkleRef = useRef<HTMLImageElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const mintRef = useRef<HTMLDivElement>(null);
+  const mergeRef = useRef<HTMLDivElement>(null);
+  const moneyRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const refs = [heading1Ref, heading2Ref, paragraphRef];
 
-  //   gsap.fromTo(
-  //     container.current,
-  //     { opacity: 0 },
-  //     { opacity: 1, duration: 1, ease: "power4" }
-  //   );
+    gsap.fromTo(
+      container.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power4" }
+    );
 
-  //   refs.forEach((ref, index) => {
-  //     gsap.fromTo(
-  //       ref.current,
-  //       { y: "100%" },
-  //       {
-  //         y: 0,
-  //         duration: 1.5,
-  //         delay: 0.075 * index,
-  //         ease: "power4.out",
-  //       }
-  //     );
-  //   });
+    refs.forEach((ref, index) => {
+      gsap.fromTo(
+        ref.current,
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 1.5,
+          delay: 0.075 * index,
+          ease: "power4.out",
+        }
+      );
+    });
 
-  //   gsap.fromTo(
-  //     sparkleRef.current,
-  //     { opacity: 0 },
-  //     { opacity: 1, duration: 1.5, delay: 0.6, ease: "power4" }
-  //   );
+    gsap.fromTo(
+      sparkleRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.5, delay: 0.6, ease: "power4" }
+    );
 
-  //   gsap.fromTo(
-  //     buttonRef.current,
-  //     { opacity: 0, y: 10 },
-  //     { opacity: 1, y: 0, duration: 1, delay: 0.7, ease: "power4" }
-  //   );
+    gsap.fromTo(
+      buttonRef.current,
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.7, ease: "power4" }
+    );
 
-  //   gsap
-  //     .timeline({
-  //       scrollTrigger: {
-  //         trigger: aboutRef.current,
-  //         start: "top top",
-  //         end: "bottom center",
-  //         scrub: true,
-  //         pin: true,
-  //       },
-  //     })
-  //     .fromTo(
-  //       mergeRef.current,
-  //       { opacity: 0, scale: 0 },
-  //       { opacity: 1, duration: 1, scale: 1, ease: "power4" }
-  //     )
-  //     .fromTo(
-  //       mintRef.current,
-  //       {
-  //         scale: 0,
-  //         x: 420,
-  //         y: 270,
-  //       },
-  //       {
-  //         scale: 1,
-  //         x: 0,
-  //         y: 0,
-  //       }
-  //     )
-  //     .fromTo(
-  //       moneyRef.current,
-  //       {
-  //         scale: 0,
-  //         x: -420,
-  //         y: -270,
-  //       },
-  //       {
-  //         scale: 1,
-  //         x: 0,
-  //         y: 0,
-  //       }
-  //     );
-  // }, []);
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top top",
+          end: "bottom center",
+          scrub: true,
+          pin: true,
+        },
+      })
+      .fromTo(
+        mergeRef.current,
+        { opacity: 0, scale: 0 },
+        { opacity: 1, duration: 1, scale: 1, ease: "power4" }
+      )
+      .fromTo(
+        mintRef.current,
+        {
+          scale: 0,
+          x: 420,
+          y: 270,
+        },
+        {
+          scale: 1,
+          x: 0,
+          y: 0,
+        }
+      )
+      .fromTo(
+        moneyRef.current,
+        {
+          scale: 0,
+          x: -420,
+          y: -270,
+        },
+        {
+          scale: 1,
+          x: 0,
+          y: 0,
+        }
+      );
+  }, []);
 
   return (
     <>
