@@ -1,6 +1,6 @@
-// import nft1 from "../../../public/nft1.jpg";
+import nft1 from "../../../public/nft1.jpg";
 import nft2 from "../../../public/nft2.png";
-// import nft3 from "../../../public/nft3.png";
+import nft3 from "../../../public/nft3.png";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
@@ -84,11 +84,22 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item) => (
           <li
-            className="gap-6 flex flex-col bg-black border border-gray-600 rounded-lg shadow-md w-[350px] h-[200px] relative overflow-hidden"
+            className="gap-6 flex flex-col bg-black border border-gray-600 rounded-lg shadow-md w-[350px] h-[300px] relative overflow-hidden"
             key={item.index}
           >
-            <div className="relative w-full h-56">
-              <Image src={nft2} alt="nft" layout="fill" objectFit="cover" />
+            <div className="relative w-full h-48">
+              <Image
+                src={
+                  item.index % 3 === 1
+                    ? nft1
+                    : item.index % 3 === 2
+                    ? nft2
+                    : nft3
+                }
+                alt="nft"
+                layout="fill"
+                objectFit="cover"
+              />
             </div>
             <div className="flex flex-col gap-2 px-5">
               <h1 className="text-2xl font-semibold text-gray-200 dark:text-gray-200">
