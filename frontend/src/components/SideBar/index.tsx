@@ -6,7 +6,6 @@ import {
   LayoutDashboard,
   User,
   Settings,
-  ArrowLeft,
   Briefcase,
   LogOut,
   BadgeCent,
