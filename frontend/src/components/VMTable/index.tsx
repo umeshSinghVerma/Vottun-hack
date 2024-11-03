@@ -7,7 +7,10 @@ import tether_icon from "../../../public/coin-3.svg";
 import bnb_icon from "../../../public/coin-4.svg";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 const MarketSection = () => {
+  const router = useRouter();
   return (
     <section
       className="bg-eerie-black-1 text-white py-20 px-20"
@@ -37,6 +40,7 @@ const MarketSection = () => {
                   rank: 1,
                   name: "Bitcoin",
                   symbol: "BTC",
+                  chartName:"BITSTAMP:BTCUSD",
                   price: "$56,623.54",
                   change: "+1.45%",
                   cap: "$880,423,640,582",
@@ -46,6 +50,7 @@ const MarketSection = () => {
                 {
                   rank: 2,
                   name: "Ethereum",
+                  chartName:"MARKETSCOM:ETHEREUM",
                   symbol: "ETH",
                   price: "$56,623.54",
                   change: "-5.12%",
@@ -56,6 +61,7 @@ const MarketSection = () => {
                 {
                   rank: 3,
                   name: "Tether",
+                  chartName:"BITSTAMP:BTCUSD",
                   symbol: "USDT",
                   price: "$1.00",
                   change: "+0.02%",
@@ -67,6 +73,7 @@ const MarketSection = () => {
                   rank: 4,
                   name: "BNB",
                   symbol: "BNB",
+                  chartName:"CRYPTOCAP:BNB",
                   price: "$350.45",
                   change: "-1.23%",
                   cap: "$53,123,456,789",
@@ -77,7 +84,10 @@ const MarketSection = () => {
               ].map((coin, index) => (
                 <tr
                   key={index}
-                  className="hover:bg-gray-800 transition-all duration-200"
+                  className="hover:bg-gray-800 transition-all duration-200 cursor-pointer"
+                  onClick={()=>{
+                    router.push(`/dashboard/trade?sym=${coin.chartName}`)
+                  }}
                 >
                   <th className="px-3 font-bold py-6">{coin.rank}</th>
                   <td className="px-3 py-6">
@@ -89,12 +99,12 @@ const MarketSection = () => {
                         height="20"
                       />
                       <h3>
-                        <a href="#" className="font-bold font-secondary">
+                        <p className="font-bold font-secondary">
                           {coin.name}{" "}
                           <span className="text-roman-silver">
                             {coin.symbol}
                           </span>
-                        </a>
+                        </p>
                       </h3>
                     </div>
                   </td>

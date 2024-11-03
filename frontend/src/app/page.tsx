@@ -141,7 +141,7 @@ export default function Home() {
                 to a dynamic crypto economy
               </p>
             </div>
-            <Link href="/login">
+            <Link href="/dashboard">
               <ShinyButton>Get Started</ShinyButton>
             </Link>
           </div>

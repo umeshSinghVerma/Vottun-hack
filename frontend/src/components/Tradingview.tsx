@@ -1,9 +1,11 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, memo } from "react";
-
+// https://in.tradingview.com/widget/advanced-chart/
 function TradingViewWidget() {
   const container = useRef<HTMLDivElement>(null);
-
+  const searchParams = useSearchParams();
+  const symbol = searchParams.get("sym");
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -13,7 +15,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "MARKETSCOM:ETHEREUM",
+          "symbol": "${symbol || `MARKETSCOM:ETHEREUM`}",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "dark",

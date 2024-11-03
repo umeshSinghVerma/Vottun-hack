@@ -2,6 +2,7 @@ import Image from "next/image";
 import heroImg from "../../../public/hero-banner.png";
 import ShinyButton from "../ShinyButton";
 import { InfiniteMovingCardsDemo } from "../InfiniteSlider";
+import Link from "next/link";
 const Hero: React.FC = () => {
   return (
     <section className="bg-black py-16 w-full flex flex-col justify-center items-center gap-20">
@@ -14,7 +15,9 @@ const Hero: React.FC = () => {
             the easiest, safest, and fastest way to buy & sell crypto assets.
           </p>
 
-          <ShinyButton>Get started now</ShinyButton>
+          <Link href={'/dashboard/trade'}>
+            <ShinyButton>Get started now</ShinyButton>
+          </Link>
         </div>
         <div>
           <Image src={heroImg} alt="hero banner" className="w-full max-w-lg" />
