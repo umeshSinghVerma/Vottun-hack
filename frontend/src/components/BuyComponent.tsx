@@ -12,7 +12,7 @@ const BuyComponent: React.FC = () => {
         <div className="bg-[#131722] rounded-lg p-6 w-full max-w-sm mx-auto text-center text-white shadow-lg">
             {/* Title Section */}
             <div className="flex justify-between items-center mb-4">
-                <span className="text-sm text-gray-400">You're buying</span>
+                <span className="text-sm text-gray-400">You&apos;re buying</span>
                 <div className="flex items-center space-x-2">
                     <img src="/path/to/flag-icon.png" alt="Flag" className="w-5 h-5 rounded-full" />
                 </div>

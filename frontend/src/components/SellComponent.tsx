@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import bitcoin_icon from "./../../public/coin-1.svg";
 import etherium_icon from "./../../public/coin-2.svg";
 import tether_icon from "./../../public/coin-3.svg";
-import bnb_icon from "./../../public/coin-4.svg";
 import Image from 'next/image';
 const SellComponent: React.FC = () => {
     const [amount, setAmount] = useState<string>("0");
@@ -33,7 +32,7 @@ const SellComponent: React.FC = () => {
     return (
         <div className="bg-[#131722] rounded-lg p-6 w-full max-w-sm mx-auto text-white shadow-lg">
             {/* Amount Display */}
-            <div className="text-left text-gray-400 mb-2">You're sending</div>
+            <div className="text-left text-gray-400 mb-2">You&apos;re sending</div>
             <div className="text-4xl font-semibold mb-1 text-white">${amount || "0"}</div>
             <div className="text-sm text-gray-500">{amount || "0"} {crypto}</div>
 

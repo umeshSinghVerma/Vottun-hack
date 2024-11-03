@@ -7,7 +7,6 @@ import tether_icon from "../../../public/coin-3.svg";
 import bnb_icon from "../../../public/coin-4.svg";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 const MarketSection = () => {
   const router = useRouter();

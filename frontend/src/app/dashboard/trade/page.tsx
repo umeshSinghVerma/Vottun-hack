@@ -1,6 +1,7 @@
 import BuySellSwitcher from "@/components/BuySellSwitcher";
 import Tradingview from "@/components/Tradingview";
 import Portfolio from "@/components/Portfolio";
+import { Suspense } from "react";
 
 // Initial portfolio data to pass as props
 const initialPortfolioData = {
@@ -19,7 +20,9 @@ export default function page() {
         <div className="flex md:flex-row w-full h-full flex-col">
             <div className="w-[70%] flex flex-col">
                 <div className="h-[70%]">
-                    <Tradingview />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Tradingview />
+                    </Suspense>
                 </div>
                 <div className="h-[30%] overflow-y-auto border-gray-700 border">
                     <Portfolio initialData={initialPortfolioData} /> {/* Pass initial data */}

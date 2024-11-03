@@ -21,13 +21,15 @@ interface PortfolioProps {
 }
 
 export default function Portfolio({ initialData }: PortfolioProps) {
-    const [portfolioData, setPortfolioData] = useState(initialData);
+    // const [portfolioData, setPortfolioData] = useState(initialData);
+    const portfolioData = initialData;
     const [activeTab, setActiveTab] = useState<'portfolio' | 'orders'>('portfolio');
 
     // Function to switch tabs
     const switchTab = (tab: 'portfolio' | 'orders') => {
         setActiveTab(tab);
     };
+
 
     return (
         <div className="p-4 bg-[#131722] text-white">
