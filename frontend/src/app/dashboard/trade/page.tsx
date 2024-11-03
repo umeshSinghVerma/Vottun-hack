@@ -1,3 +1,4 @@
+'use client'
 import BuySellSwitcher from "@/components/BuySellSwitcher";
 import Tradingview from "@/components/Tradingview";
 import Portfolio from "@/components/Portfolio";
@@ -15,7 +16,7 @@ const initialPortfolioData = {
     ]
 };
 
-export default function page() {
+export default function Page() {
     return (
         <div className="flex md:flex-row w-full h-full flex-col">
             <div className="w-[70%] flex flex-col">
@@ -25,7 +26,7 @@ export default function page() {
                     </Suspense>
                 </div>
                 <div className="h-[30%] overflow-y-auto border-gray-700 border">
-                    <Portfolio initialData={initialPortfolioData} /> {/* Pass initial data */}
+                    <Portfolio initialData={initialPortfolioData} />
                 </div>
             </div>
             <div className="w-[30%]">

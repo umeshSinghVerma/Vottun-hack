@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import {
   LayoutDashboard,
   User,
@@ -15,6 +14,7 @@ import Logo from "../../../public/logo.svg";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { useWalletContext } from "../WalletContext";
 
 const links = [
   {
@@ -46,6 +46,7 @@ const links = [
 
 const DashboardSidebar = ({}) => {
   const [open, setOpen] = useState(false);
+  const {disconnectWallet} = useWalletContext();
 
   return (
     <div className="fixed h-full border-r border-grey-600 flex flex-col z-10 bg-opacity-50 backdrop-blur-2xl">
@@ -70,17 +71,13 @@ const DashboardSidebar = ({}) => {
           </div>
           <div className="w-full flex justify-center px-4 mb-4">
             {open ? (
-              <Link href="/">
-                <Button variant="destructive" className="w-full">
-                  Logout <LogOut className="h-4 w-4 ml-2" />
+                <Button variant="destructive" className="w-full" onClick={disconnectWallet}>
+                  Disconnect Wallet <LogOut className="h-4 w-4 ml-2" />
                 </Button>
-              </Link>
             ) : (
-              <Link href="/">
-                <Button variant="destructive" size="icon">
+                <Button variant="destructive" size="icon" onClick={disconnectWallet}>
                   <LogOut className="h-4 w-4" />
                 </Button>
-              </Link>
             )}
           </div>
         </SidebarBody>

@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import { useWalletContext } from "./WalletContext";
 
 const SwapComponent: React.FC = () => {
+    const { isConnected, connectWallet } = useWalletContext();
+
     const [fromToken, setFromToken] = useState("ETH");
     const [toToken, setToToken] = useState("USDT");
     const [amount, setAmount] = useState<string>("");
@@ -85,10 +88,24 @@ const SwapComponent: React.FC = () => {
                 </div>
             </div>
 
-            {/* Swap Action Button */}
-            <button className="w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500">
-                Swap
-            </button>
+            {
+                isConnected ?
+                    (
+                        <button
+                            className="mt-6 w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            Swap
+                        </button>
+
+                    )
+                    :
+                    (
+                        <button
+                            onClick={connectWallet}
+                            className="mt-6 w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            Connect Wallet
+                        </button>
+                    )
+            }
         </div>
     );
 };

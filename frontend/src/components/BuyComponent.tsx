@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useWalletContext } from './WalletContext';
 
 const BuyComponent: React.FC = () => {
     const [amount, setAmount] = useState(0);
+    const { connectWallet, isConnected } = useWalletContext();
 
     // Update the amount based on preset button clicks
     const handleAmountChange = (value: number) => {
@@ -34,11 +36,25 @@ const BuyComponent: React.FC = () => {
                     </button>
                 ))}
             </div>
+            {
+                isConnected ?
+                    (
+                        <button
+                            className="mt-6 w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            Buy
+                        </button>
 
-            {/* Connect Wallet Button */}
-            <button className="mt-6 w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500">
-                Connect Wallet
-            </button>
+                    )
+                    :
+                    (
+                        <button
+                            onClick={connectWallet}
+                            className="mt-6 w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            Connect Wallet
+                        </button>
+                    )
+            }
+
         </div>
     );
 };
