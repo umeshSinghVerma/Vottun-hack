@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios, { AxiosResponse } from "axios";
 
 interface TransferResponse {

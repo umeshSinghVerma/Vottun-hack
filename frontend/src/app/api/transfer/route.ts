@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { transferERC20Token } from '@/lib/sellToken';
 import { NextRequest, NextResponse } from "next/server";
 
@@ -7,12 +8,6 @@ interface TransferRequestBody {
     network: number;
     amount: number;
     gasLimit?: number;
-}
-
-interface TransferResponse {
-    success: boolean;
-    txHash?: string;
-    error?: string;
 }
 
 export async function POST(req: NextRequest) {

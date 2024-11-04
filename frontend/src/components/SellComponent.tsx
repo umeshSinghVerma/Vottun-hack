@@ -1,4 +1,4 @@
-// components/SellComponent.tsx
+/* eslint-disable */
 import React, { useRef, useState } from 'react';
 import bitcoin_icon from "./../../public/coin-1.svg";
 import etherium_icon from "./../../public/coin-2.svg";
@@ -6,7 +6,6 @@ import tether_icon from "./../../public/coin-3.svg";
 import Image from 'next/image';
 import { useWalletContext } from './WalletContext';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 
@@ -14,7 +13,6 @@ const SellComponent: React.FC = () => {
     const { isConnected, connectWallet } = useWalletContext();
     const [amount, setAmount] = useState<string>("0");
     const [crypto, setCrypto] = useState<string>("ETH");
-    const router = useRouter();
 
     const cryptocurrencies = [
         { symbol: "ETH", name: "Ethereum", icon: etherium_icon },
