@@ -25,31 +25,47 @@ At NexiTrade, our mission is to make digital asset trading smarter, faster, and 
 
 6. **Comprehensive Analytics & Dashboard:** The platform offers users an intuitive dashboard displaying live market data, transaction history, and portfolio performance, providing insights into asset value and trading options.
 
-### Work Flow
+## Work Flow
+
+
 
 ![Workflow](https://github.com/user-attachments/assets/8600701c-5d14-477b-b0a2-1a6ec6e365fd)
 
 
-### About the Platform
 
-## 1. The HomePage - giving a small intro about the platform
+## About the Platform
+
+
+### 1. The HomePage - giving a small intro about the platform
+
+
    
 ![CreateNextApp-GoogleChrome2024-11-0323-13-08-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6e5fc819-ce45-435f-8b47-61973ed41875)
 
 
-## 2. Login 
+### 2. Wallet Connect  
+
+![WhatsAppVideo2024-11-04at00 26 09online-video-cutter com-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4212564f-517b-4195-a20f-795363438b25)
 
 
- ## 3. Dashboard - showcasing the present NFT'S on the platform and the list of all the vm's
+
+
+ ### 3. Dashboard - showcasing the present NFT'S on the platform and the list of all the vm's
+
+
    
  ![CreateNextApp-GoogleChrome2024-11-0323-23-44-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ade0aeb0-2e09-49dc-8e34-8729bad727a8)
 
 
-## 4. Real-Time Tracking: Users gain insights into market dynamics as they happen, assisting in timely buying/selling decisions.
+
+
+### 4. Real-Time Tracking: Users gain insights into market dynamics as they happen, assisting in timely buying/selling decisions.
   <img src="https://github.com/user-attachments/assets/a14ee738-a886-4015-ab22-f1b8e7fd71f0" alt="graph" width="600"/>
 
 
- ## 5. Users can buy, sell & swap their tokens
+
+
+  ### 5. Users can buy, sell & swap their tokens
 
 <div align="center">
  <img src="https://github.com/user-attachments/assets/4f6bcfa6-bd89-4e28-b05c-01754fd84438" alt="buy" width="30%">
