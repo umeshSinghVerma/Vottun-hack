@@ -162,6 +162,24 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     } else {
       console.error("Recipient address or amount is invalid.");
     }
-  }```
+  }
+```
+### Setup Instructions
+Clone the repo
+
+```git clone  https://github.com/umeshSinghVerma/Vottun-hack```
+
+get into the frontend folder
+```cd frontend```
+
+install the dependencies
+```npm i ```
+
+set up the .env.local file
+```
+VOTTUN_API_KEY=
+VOTTUN_APPLICATION_ID=""
+VOTTUN_CONTRACT_ADDRESS=""
+```
 
 
