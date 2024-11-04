@@ -1,4 +1,6 @@
 
+ <img src="https://github.com/user-attachments/assets/a4525855-abe4-48bb-b0e3-d28ec2315fcf" alt="graph" width="600"/>
+
 ## CryptoSmart
 
 Welcome to our Web3 Exchange, a decentralized marketplace for trading digital assets like tokens and NFTs. Our platform empowers users to seamlessly buy, sell, and trade their assets while leveraging automated backend algorithms to maximize profits.
