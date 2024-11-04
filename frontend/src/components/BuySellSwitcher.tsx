@@ -27,7 +27,7 @@ const BuySellSwitcher: React.FC = () => {
                         rounded-t-lg`}
                     onClick={() => setActiveTab("sell")}
                 >
-                    Sell
+                    Send
                 </button>
                 <button
                     className={`py-2 px-4 w-1/3 text-center transition-all duration-200 
