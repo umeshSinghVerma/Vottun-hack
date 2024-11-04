@@ -75,6 +75,93 @@ At NexiTrade, our mission is to make digital asset trading smarter, faster, and 
    <img src="https://github.com/user-attachments/assets/0408f132-2032-4973-939d-8a3c3c52c0f6" alt="swap" width="30%">
 </div>
 
-   
+### Code Components 
+
+## Wallet Connect 
+```interface WalletContextType {
+    isConnected: boolean;
+    ethBalance: string;
+    account: string;
+    connectWallet: () => Promise<void>;
+    disconnectWallet: () => void;
+}
+
+const WalletContext = createContext<WalletContextType | undefined>(undefined);
+
+export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [isConnected, setIsConnected] = useState(false);
+    const [ethBalance, setEthBalance] = useState<string>("");
+    const [account, setAccount] = useState<string>("");
+
+    const detectCurrentProvider = useCallback(() => {
+        if (typeof window !== "undefined") {
+            if (window.ethereum) {
+                return window.ethereum;
+            } else if (window.web3) {
+                return window.web3.currentProvider;
+            } else {
+                console.log("Non-ethereum browser detected. Please install MetaMask.");
+            }
+        }
+        return null;
+    }, []);
+
+    const connectWallet = useCallback(async () => {
+        const provider = detectCurrentProvider();
+        if (provider) {
+            try {
+                await provider.request({ method: "eth_requestAccounts" });
+                const web3 = new Web3(provider);
+                const accounts = await web3.eth.getAccounts();
+                if (accounts.length > 0) {
+                    const balance = await web3.eth.getBalance(accounts[0]);
+                    setAccount(accounts[0]);
+                    setEthBalance(web3.utils.fromWei(balance, "ether"));
+                    setIsConnected(true);
+                }
+            } catch (error) {
+                console.error("Connection error", error);
+            }
+        }
+    }, [detectCurrentProvider]);
+
+    const disconnectWallet = useCallback(() => {
+        setIsConnected(false);
+        setEthBalance("");
+        setAccount("");
+    }, []);
+```
+
+
+### Sell Transaction
+``` async function sendAmount() {
+    if (
+      recipentRef.current &&
+      amountRef.current &&
+      recipentRef.current.value &&
+      amountRef.current.value
+    ) {
+      const recipentAddress = recipentRef.current.value;
+      const amountToSend = parseFloat(amountRef.current.value) * 1e18; // Convert to wei
+      setLoading(true);
+      try {
+        const response = await axios.post("/api/transfer", {
+          recipient: recipentAddress,
+          network: 80002,
+          amount: amountToSend,
+          gasLimit: 4000000,
+        });
+
+        console.log("Response:", response.data);
+        setResult(response.data.transactionHash);
+      } catch (error) {
+        console.error("Error sending amount:", error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      console.error("Recipient address or amount is invalid.");
+    }
+  }```
 
 
