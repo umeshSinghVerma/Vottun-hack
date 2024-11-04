@@ -135,36 +135,55 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 ```
 
 
-### Sell Transaction
-``` async function sendAmount() {
-    if (
-      recipentRef.current &&
-      amountRef.current &&
-      recipentRef.current.value &&
-      amountRef.current.value
-    ) {
-      const recipentAddress = recipentRef.current.value;
-      const amountToSend = parseFloat(amountRef.current.value) * 1e18; // Convert to wei
-      setLoading(true);
-      try {
-        const response = await axios.post("/api/transfer", {
-          recipient: recipentAddress,
-          network: 80002,
-          amount: amountToSend,
-          gasLimit: 4000000,
-        });
+### Send Transaction
+```
+import axios, { AxiosResponse } from "axios";
 
-        console.log("Response:", response.data);
-        setResult(response.data.transactionHash);
-      } catch (error) {
-        console.error("Error sending amount:", error);
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      console.error("Recipient address or amount is invalid.");
+interface TransferResponse {
+    success: boolean;
+    txHash?: string;
+    error?: string;
+}
+
+export async function transferERC20Token(
+    recipient: string,
+    network: number,
+    amount: number,
+    gasLimit?: number
+): Promise<TransferResponse> {
+    const headersList = {
+        "x-application-vkn": process.env.VOTTUN_APPLICATION_ID || "",
+        "Authorization":`Bearer ${process.env.VOTTUN_API_KEY}`,
+        "Content-Type": "application/json",
+    };
+    const contractAddress = process.env.VOTTUN_CONTRACT_ADDRESS;
+
+    const bodyContent = JSON.stringify({
+        contractAddress,
+        recipient,
+        network,
+        amount,
+        gasLimit,
+    });
+
+    
+    const reqOptions = {
+        url: "https://api.vottun.tech/erc/v1/erc20/transfer",
+        method: "POST",
+        headers: headersList,
+        data: bodyContent,
+    };
+    
+    try {
+        console.log("body content",bodyContent);
+        const response: AxiosResponse<TransferResponse> = await axios.request(reqOptions);
+        return response.data;
+    } catch (error: any) {
+        console.log(error);
+        throw new Error(error.response?.data?.message || "Transfer failed");
     }
-  }
+}
+
 ```
 ### Setup Instructions
 Clone the repo
