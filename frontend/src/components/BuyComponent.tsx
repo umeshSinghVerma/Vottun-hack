@@ -4,6 +4,7 @@ import etherium_icon from "./../../public/coin-2.svg";
 import tether_icon from "./../../public/coin-3.svg";
 import Image from 'next/image';
 import { useWalletContext } from './WalletContext';
+import AddCardModal from './AddCardModal';
 
 const BuyComponent: React.FC = () => {
     const { isConnected, connectWallet } = useWalletContext();
@@ -74,11 +75,7 @@ const BuyComponent: React.FC = () => {
 
             {/* Buy/Connect Button */}
             {isConnected ? (
-                <button
-                    className="mt-6 w-full bg-purple-700 text-white py-3 rounded-full font-medium hover:bg-purple-800 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                    Buy
-                </button>
+                <AddCardModal/>
             ) : (
                 <button
                     onClick={connectWallet}
